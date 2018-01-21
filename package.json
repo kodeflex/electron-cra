@@ -1,0 +1,41 @@
+{
+  "name": "electron-cra",
+  "description": "electron+create-react-app sample app",
+  "author": "thinkholic",
+  "version": "0.0.1",
+  "main": "electron.js",
+  "homepage": "./",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kodeflex/electron-cra.git"
+  },
+  "dependencies": {
+    "path": "^0.12.7",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.1.0",
+    "url": "^0.11.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "dev": "isDev=true concurrently \"BROWSER=none npm start\" \"wait-on http://localhost:3000 && electron .\"",
+    "prod": "build --em.main=electron.js",
+    "preprod": "npm run build"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1",
+    "electron": "^1.7.10",
+    "electron-builder": "^19.54.0",
+    "electron-is-dev": "^0.3.0",
+    "wait-on": "^2.0.2"
+  },
+  "build": {
+    "appId": "io.test.electron-cra",
+    "asar": false,
+    "extends": null
+  }
+}
