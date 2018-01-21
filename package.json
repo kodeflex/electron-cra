@@ -28,15 +28,15 @@
     "electron-log": "^2.2.14",
     "electron-updater": "^2.19.1",
     "node-notifier": "^5.2.1",
-    "react": "15.5.4",
-    "react-dom": "15.5.4"
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
   },
   "devDependencies": {
     "concurrently": "3.5.1",
     "electron": "1.6.10",
     "electron-builder": "^19.8.0",
     "prettier": "^1.10.2",
-    "react-scripts": "1.0.7",
+    "react-scripts": "^1.1.0",
     "wait-on": "^2.1.0"
   },
   "build": {
