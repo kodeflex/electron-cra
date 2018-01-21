@@ -1,41 +1,56 @@
 {
   "name": "electron-cra",
   "description": "electron+create-react-app sample app",
-  "author": "thinkholic",
   "version": "0.0.1",
-  "main": "electron.js",
-  "homepage": "./",
+  "private": true,
+  "author": "thinkholic",
   "license": "MIT",
+  "homepage": "./",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kodeflex/electron-cra.git"
   },
-  "dependencies": {
-    "path": "^0.12.7",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-scripts": "1.1.0",
-    "url": "^0.11.0"
-  },
+  "main": "public/electron.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "dev": "isDev=true concurrently \"BROWSER=none npm start\" \"wait-on http://localhost:3000 && electron .\"",
-    "prod": "build --em.main=electron.js",
-    "preprod": "npm run build"
+    "dev": "concurrently \"cross-env BROWSER=none npm start\" \"wait-on http://localhost:3000 && electron .\"",
+    "prod": "build --em.main=build/electron.js",
+    "release": "build --em.main=build/electron.js --publish=always",
+    "preprod": "npm run build",
+    "prerelease": "npm run build"
+  },
+  "dependencies": {
+    "cross-env": "5.0.1",
+    "electron-is-dev": "0.1.2",
+    "electron-log": "^2.2.6",
+    "electron-updater": "^2.18.2",
+    "node-notifier": "^5.1.2",
+    "react": "15.5.4",
+    "react-dom": "15.5.4"
   },
   "devDependencies": {
-    "concurrently": "^3.5.1",
-    "electron": "^1.7.10",
-    "electron-builder": "^19.54.0",
-    "electron-is-dev": "^0.3.0",
-    "wait-on": "^2.0.2"
+    "concurrently": "3.4.0",
+    "electron": "1.6.10",
+    "electron-builder": "^19.8.0",
+    "prettier": "^1.4.4",
+    "react-scripts": "1.0.7",
+    "wait-on": "2.0.2"
   },
   "build": {
-    "appId": "io.test.electron-cra",
-    "asar": false,
-    "extends": null
+    "appId": "io.example.electron-cra",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "publish": {
+      "provider": "github"
+    }
   }
 }
